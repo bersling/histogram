@@ -1,0 +1,35 @@
+
+<div style="margin-bottom: 10px;">
+  Number
+</div>
+<div class="row1">
+  <div class="y-axis">
+    <div class="y-axis-element" *ngFor="let bin of bins; let i = index">
+      <div class="tick-mark">{{i}}</div>
+    </div>
+  </div>
+  <div class="bins">
+    <div class="bin" *ngFor="let bin of bins">
+      <app-block [block]="dataPoint" *ngFor="let dataPoint of bin"></app-block>
+    </div>
+  </div>
+  <div class="empty"></div>
+</div>
+<div class="row2">
+  <div class="empty"></div>
+  <div class="x-axis">
+    <div *ngFor="let bin of bins; let i = index" class="x-axis-element">
+      <div class="tick-mark">{{i * binLength | number}}</div>
+    </div>
+  </div>
+  <div class="unit">
+    size [μm]
+  </div>
+</div>
+
+
+<!--.........................-->
+  <!--y  |   blocks   |-->
+<!--.........................-->
+     <!--|   x-axis   |  size [μm]-->
+<!--.........................-->

@@ -1,14 +1,19 @@
 <h1>
   Interactive Histogram
 </h1>
+<p>
+  <i>Click a block to see the corresponding image.</i>
+</p>
 <app-histogram [numberBins]="numberBins"
                [start]="start"
                [end]="end"
                [data]="data">
 </app-histogram>
-<br><br><br>
-<div>
-  <input type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
-  <input type="number" [(ngModel)]="start" placeholder="Start">
-  <input type="number" [(ngModel)]="end" placeholder="End">
-</div>
+<br>
+<app-displayed-image></app-displayed-image>
+<br>
+<!--<div>-->
+  <!--<input type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">-->
+  <!--<input type="number" [(ngModel)]="start" placeholder="Start">-->
+  <!--<input type="number" [(ngModel)]="end" placeholder="End">-->
+<!--</div>-->

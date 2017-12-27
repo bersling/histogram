@@ -9,9 +9,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   data = [
-    {id: 0, size: 0.1, img: 'bla.png'},
-    {id: 1, size: 0.4, img: 'bla.png'},
-    {id: 2, size: 1.3, img: 'bla.png'}
+    {id: 0, size: 0.1, img: '026-mitosis.png'},
+    {id: 1, size: 0.4, img: '014-cells.png'},
+    {id: 2, size: 1.3, img: '016-neuron.png'}
   ];
 
   numberBins: number = 2;
