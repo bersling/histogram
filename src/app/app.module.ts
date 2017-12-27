@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HistogramComponent } from './histogram/histogram.component';
+import { BlockComponent } from './block/block.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HistogramComponent,
+    BlockComponent
   ],
   imports: [
     BrowserModule,
