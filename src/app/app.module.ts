@@ -9,6 +9,7 @@ import {BlockService} from './block.service';
 import { DisplayedImageComponent } from './displayed-image/displayed-image.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import {FileStoreService} from './file-upload.service';
+import { CsvUploadComponent } from './csv-upload/csv-upload.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FileStoreService} from './file-upload.service';
     HistogramComponent,
     BlockComponent,
     DisplayedImageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    CsvUploadComponent
   ],
   imports: [
     BrowserModule,
