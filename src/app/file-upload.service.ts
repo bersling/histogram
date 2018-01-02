@@ -15,7 +15,7 @@ export class FileStoreService {
 
   constructor() { }
 
-  // TODO: function is called to often, optimize...
+  // TODO: function is called too often, optimize...
   counter = 0;
   get isEmpty(): boolean {
     console.log(this.counter++, 'isEmpty');
