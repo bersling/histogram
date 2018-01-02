@@ -18,5 +18,13 @@ export class AppComponent {
   start: number = 2;
   end: number = 0;
 
+  _displayHistogram: boolean;
+  get displayHistogram () {
+    return this._displayHistogram;
+  }
+  set displayHistogram(val) {
+    this._displayHistogram = val;
+  }
+
 
 }

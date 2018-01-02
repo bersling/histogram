@@ -1,23 +1,59 @@
 <h1>
   Interactive Histogram
 </h1>
-<app-file-upload></app-file-upload>
-<p>
-  <i>Click a block to see the corresponding image.</i>
-</p>
-<app-histogram [numberBins]="numberBins"
-               [start]="start"
-               [end]="end"
-               [data]="data">
-</app-histogram>
+
+<div *ngIf="!displayHistogram">
+  <h2>
+    Step 1: Upload CSV
+  </h2>
+  
+  <p>
+    The <code>.csv</code> should contain the following colums:
+  </p>
+  <pre>size, image-file-name</pre>
+  
+  
+  <h2>
+    Step 2: Upload Images
+  </h2>
+  
+  <app-file-upload></app-file-upload>
+  
+  
+  <h2>Step 3: Choose histogram configuration</h2>
+  
+  <div>
+    <input type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
+    <input type="number" [(ngModel)]="start" placeholder="Start">
+    <input type="number" [(ngModel)]="end" placeholder="End">
+  </div>
+  
+  <br><br><br>
+  
+  <button (click)="displayHistogram = true">
+    Generate Histogram
+  </button>
+</div>
+
+<div *ngIf="displayHistogram">
+  <p>
+    <i>Click a block to see the corresponding image.</i>
+  </p>
+  <app-histogram [numberBins]="numberBins"
+                 [start]="start"
+                 [end]="end"
+                 [data]="data">
+  </app-histogram>
+  <br>
+  <app-displayed-image></app-displayed-image>
+  
+  <br>
+  <button (click)="displayHistogram = false">
+    Edit Settings
+  </button>
+  
+</div>
+
+
 <br>
-<app-displayed-image></app-displayed-image>
-<br>
 
-
-
-<!--<div>-->
-  <!--<input type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">-->
-  <!--<input type="number" [(ngModel)]="start" placeholder="Start">-->
-  <!--<input type="number" [(ngModel)]="end" placeholder="End">-->
-<!--</div>-->
