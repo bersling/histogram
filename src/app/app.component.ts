@@ -20,7 +20,10 @@ export class AppComponent {
   end: number = 0;
 
   _displayHistogram: boolean;
+
+  counter = 0;
   get displayHistogram () {
+    console.log(this.counter++, 'display histogram');
     return this._displayHistogram;
   }
   set displayHistogram(val) {
