@@ -1,15 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { HistogramComponent } from './histogram/histogram.component';
-import { BlockComponent } from './block/block.component';
+import {AppComponent} from './app.component';
+import {HistogramComponent} from './histogram/histogram.component';
+import {BlockComponent} from './block/block.component';
 import {BlockService} from './block.service';
-import { DisplayedImageComponent } from './displayed-image/displayed-image.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+import {DisplayedImageComponent} from './displayed-image/displayed-image.component';
+import {FileUploadComponent} from './file-upload/file-upload.component';
 import {FileStoreService} from './file-upload.service';
-import { CsvUploadComponent } from './csv-upload/csv-upload.component';
+import {CsvUploadComponent} from './csv-upload/csv-upload.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MapToIterablePipe } from './map-to-iterable.pipe';
 
 
 @NgModule({
@@ -19,11 +22,17 @@ import { CsvUploadComponent } from './csv-upload/csv-upload.component';
     BlockComponent,
     DisplayedImageComponent,
     FileUploadComponent,
-    CsvUploadComponent
+    CsvUploadComponent,
+    MapToIterablePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     BlockService,

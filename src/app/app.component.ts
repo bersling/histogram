@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {FileStore, FileStoreService} from './file-upload.service';
 
 
 @Component({
@@ -26,5 +27,14 @@ export class AppComponent {
     this._displayHistogram = val;
   }
 
+  fileStoreArray: string[];
+
+  constructor(
+    public fileStoreService: FileStoreService
+  ) {
+    this.fileStoreService.fileStore.subscribe(newFileStore => {
+      this.fileStoreArray = Object.keys(newFileStore);
+    });
+  }
 
 }

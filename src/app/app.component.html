@@ -12,26 +12,49 @@
   </p>
   <pre>size, image-file-name</pre>
   
-  <app-csv-upload></app-csv-upload>
+  <mat-card class="file-input-card">
+    <app-csv-upload></app-csv-upload>
+  </mat-card>
   
   <h2>
     Step 2: Upload Images
   </h2>
   
-  <app-file-upload></app-file-upload>
+  <mat-card class="file-input-card">
+    <app-file-upload></app-file-upload>
+  </mat-card>
+  
+  <div *ngIf="!fileStoreService.isEmpty">
+    <div><h3>Loaded Files</h3></div>
+    
+    <div *ngFor="let file of fileStoreArray" class="file-display">
+      {{file}}
+    </div>
+    <p>
+      (refresh page to clear)
+    </p>
+  </div>
   
   
   <h2>Step 3: Choose histogram configuration</h2>
   
-  <div>
-    <input type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
-    <input type="number" [(ngModel)]="start" placeholder="Start">
-    <input type="number" [(ngModel)]="end" placeholder="End">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="start" placeholder="Start">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="end" placeholder="End">
+    </mat-form-field>
   </div>
   
-  <br><br><br>
+  <br>
   
-  <button (click)="displayHistogram = true">
+  <button mat-raised-button color="primary" (click)="displayHistogram = true">
     Generate Histogram
   </button>
 </div>
@@ -48,8 +71,9 @@
   <br>
   <app-displayed-image></app-displayed-image>
   
-  <br>
-  <button (click)="displayHistogram = false">
+  <hr>
+  
+  <button mat-raised-button color="primary" (click)="displayHistogram = false">
     Edit Settings
   </button>
   

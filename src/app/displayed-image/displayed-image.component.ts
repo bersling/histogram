@@ -12,7 +12,7 @@ export class DisplayedImageComponent implements OnInit {
   currentBlock: Datapoint;
 
   get imageUrl() {
-    const fileStoreElement = this.fileStoreService.fileStore[this.currentBlock.img];
+    const fileStoreElement = this.fileStoreService.fileStore.getValue()[this.currentBlock.img];
     return fileStoreElement ? fileStoreElement.dataUrl : '/assets/faq.png';
   }
 

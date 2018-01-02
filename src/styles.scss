@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 img {
   max-width: 100%;
 }
@@ -5,4 +7,8 @@ img {
 body {
   padding: 20px;
   font-family: sans-serif;
+}
+
+h2 {
+  margin-top: 30px;
 }

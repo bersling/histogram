@@ -14,10 +14,12 @@ export class FileUploadComponent implements OnInit {
       const file = fileList[i];
       const reader = new FileReader();
       reader.onload = () => {
-        this.fileStoreService.fileStore[file.name] = {
+        const newFileStore = this.fileStoreService.fileStore.getValue();
+        newFileStore[file.name] = {
           file: file,
           dataUrl: reader.result
         };
+        this.fileStoreService.fileStore.next(newFileStore) ;
       };
       reader.readAsDataURL(file);
     }
