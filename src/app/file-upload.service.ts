@@ -15,7 +15,10 @@ export class FileStoreService {
 
   constructor() { }
 
+  // TODO: function is called to often, optimize...
+  counter = 0;
   get isEmpty(): boolean {
+    console.log(this.counter++, 'isEmpty');
     return Object.keys(this.fileStore.getValue()).length === 0;
   }
 
