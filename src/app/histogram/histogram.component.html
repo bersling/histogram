@@ -10,7 +10,7 @@
   </div>
   <div class="bins">
     <div class="bin" *ngFor="let bin of bins">
-      <app-block [block]="dataPoint" *ngFor="let dataPoint of bin"></app-block>
+      <app-block [selected]="dataPoint?.id === selected" [block]="dataPoint" *ngFor="let dataPoint of bin"></app-block>
     </div>
   </div>
   <div class="empty"></div>

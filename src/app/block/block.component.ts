@@ -1,26 +1,20 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {BlockService} from '../block.service';
 
 @Component({
   selector: 'app-block',
   templateUrl: './block.component.html',
-  styleUrls: ['./block.component.scss']
+  styleUrls: ['./block.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlockComponent implements OnInit {
+export class BlockComponent {
 
   @Input() block: Datapoint;
-
-  selected: boolean;
+  @Input() selected: boolean;
 
   constructor(
     private blockService: BlockService
   ) { }
-
-  ngOnInit() {
-    this.blockService.selectedBlock.subscribe(block => {
-      this.selected = this.block && this.block.id === block.id;
-    });
-  }
 
   selectBlock() {
     this.blockService.setNextSelectedBlock(this.block);

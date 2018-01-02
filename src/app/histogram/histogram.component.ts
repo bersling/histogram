@@ -1,11 +1,12 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {BlockService} from '../block.service';
 
 @Component({
   selector: 'app-histogram',
   templateUrl: './histogram.component.html',
   styleUrls: ['./histogram.component.scss']
 })
-export class HistogramComponent implements OnChanges {
+export class HistogramComponent implements OnChanges, OnInit {
 
   @Input() numberBins: number;
   @Input() start: number;
@@ -14,12 +15,23 @@ export class HistogramComponent implements OnChanges {
 
   bins;
   binLength: number;
+  selected: number;
 
-  constructor() { }
+  constructor(
+    private blockService: BlockService
+  ) { }
+
+  ngOnInit() {
+    this.blockService.selectedBlock.subscribe(block => {
+      this.selected = block.id;
+    });
+  }
 
   ngOnChanges () {
     this.setBins();
   }
+
+
 
   setBins() {
     if (this.numberBins > 0) {
