@@ -7,6 +7,8 @@ import { HistogramComponent } from './histogram/histogram.component';
 import { BlockComponent } from './block/block.component';
 import {BlockService} from './block.service';
 import { DisplayedImageComponent } from './displayed-image/displayed-image.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import {FileStoreService} from './file-upload.service';
 
 
 @NgModule({
@@ -14,14 +16,16 @@ import { DisplayedImageComponent } from './displayed-image/displayed-image.compo
     AppComponent,
     HistogramComponent,
     BlockComponent,
-    DisplayedImageComponent
+    DisplayedImageComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [
-    BlockService
+    BlockService,
+    FileStoreService
   ],
   bootstrap: [AppComponent]
 })
