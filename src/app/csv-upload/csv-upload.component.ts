@@ -18,7 +18,7 @@ export class CsvUploadComponent implements OnInit {
 
       this.papa.parse(file, {
         complete: (results, resultingFile) => {
-          this.store.csvFile = results;
+          this.store.csvFile.next(results);
           this.parsedData = results;
         }
       });

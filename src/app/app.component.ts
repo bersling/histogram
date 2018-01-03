@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ImageStore} from './image-upload/image.store';
+import {CsvDataStore} from './csv-upload/csv-data.store';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,7 @@ import {ImageStore} from './image-upload/image.store';
 })
 export class AppComponent {
 
-  data = [
-    {id: 0, size: 0.1, img: 'party.png'},
-    {id: 1, size: 0.4, img: 'cells.png'},
-    {id: 2, size: 1.3, img: '016-neuron.png'}
-  ];
+  data;
 
   numberBins: number = 2;
   start: number = 2;
@@ -30,8 +27,12 @@ export class AppComponent {
   fileStoreArray: string[];
 
   constructor(
-    public imageStore: ImageStore
+    public imageStore: ImageStore,
+    private csvStore: CsvDataStore
   ) {
+    this.csvStore.csvFile.subscribe((newValue) => {
+      this.data = newValue.data;
+    });
     this.imageStore.imageStore.subscribe(newFileStore => {
       this.fileStoreArray = Object.keys(newFileStore);
     });
