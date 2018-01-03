@@ -9,11 +9,11 @@ import {CsvDataStore} from './csv-upload/csv-data.store';
 })
 export class AppComponent {
 
-  data;
+  data: Datapoint[];
 
   numberBins: number = 2;
-  start: number = 2;
-  end: number = 0;
+  start: number = 0;
+  end: number = 2;
 
   _displayHistogram: boolean;
 
@@ -31,11 +31,12 @@ export class AppComponent {
     private csvStore: CsvDataStore
   ) {
     this.csvStore.csvFile.subscribe((newValue) => {
-      this.data = newValue.data.map(elem => {
+      this.data = newValue.data.map((elem, idx) => {
         return {
-          size: elem[0],
-
-        }
+          size: parseInt(elem[0], 10),
+          img: elem[1],
+          id: idx
+        };
       });
     });
     this.imageStore.imageStore.subscribe(newFileStore => {
