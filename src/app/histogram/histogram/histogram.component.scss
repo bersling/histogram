@@ -14,9 +14,12 @@ $width-left-column: 30px;
       flex-direction: column-reverse;
       width: 5px;
       margin-right: 10px;
+      position: relative;
       .tick-mark {
-        margin-left: -10px;
-        margin-bottom: -9px;
+        position: absolute;
+        font-size: 10px;
+        left: -20px;
+        bottom: -5px;
       }
     }
   }
@@ -48,9 +51,12 @@ $width-left-column: 30px;
       border-top: 1px solid #4054B2;
       flex-grow: 1;
       height: 6px;
+      position: relative;
       .tick-mark {
-        margin-left: -4px;
-        margin-top: 10px;
+        position: absolute;
+        font-size: 10px;
+        left: -5px;
+        bottom: -15px;
       }
     }
   }

@@ -40,6 +40,10 @@
         <mat-form-field>
           <input matInput type="number" [(ngModel)]="end" placeholder="End">
         </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="xLabel" placeholder="Label x-axis">
+        </mat-form-field>
       </div>
       <div class="stepper-controls">
         <button mat-raised-button color="primary" matStepperPrevious class="back">Back</button>
@@ -54,6 +58,7 @@
   <app-histogram [numberBins]="numberBins"
                  [start]="start"
                  [end]="end"
+                 [xLabel]="xLabel"
                  [data]="data">
   </app-histogram>
   <br>

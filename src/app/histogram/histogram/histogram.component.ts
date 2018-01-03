@@ -11,6 +11,7 @@ export class HistogramComponent implements OnChanges, OnInit {
   @Input() numberBins: number;
   @Input() start: number;
   @Input() end: number;
+  @Input() xLabel: string;
   @Input() data;
 
   bins: Datapoint[][];

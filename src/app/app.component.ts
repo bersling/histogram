@@ -14,6 +14,7 @@ export class AppComponent {
   numberBins: number = 2;
   start: number = 0;
   end: number = 2;
+  xLabel: string = 'nm';
 
   fileStoreArray: string[];
 
