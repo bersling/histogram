@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FileStoreService} from '../file-upload.service';
+import {ImageStore} from './image.store';
 
 @Component({
   selector: 'app-file-upload',
@@ -14,19 +14,19 @@ export class FileUploadComponent implements OnInit {
       const file = fileList[i];
       const reader = new FileReader();
       reader.onload = () => {
-        const newFileStore = this.fileStoreService.fileStore.getValue();
+        const newFileStore = this.imageStore.imageStore.getValue();
         newFileStore[file.name] = {
           file: file,
           dataUrl: reader.result
         };
-        this.fileStoreService.fileStore.next(newFileStore) ;
+        this.imageStore.imageStore.next(newFileStore) ;
       };
       reader.readAsDataURL(file);
     }
   }
 
   constructor(
-    private fileStoreService: FileStoreService
+    private imageStore: ImageStore
   ) { }
 
   ngOnInit() {

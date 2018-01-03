@@ -24,7 +24,7 @@
     <app-file-upload></app-file-upload>
   </mat-card>
   
-  <div *ngIf="!fileStoreService.isEmpty">
+  <div *ngIf="!imageStore.isEmpty">
     <div><h3>Loaded Files</h3></div>
     
     <div *ngFor="let file of fileStoreArray" class="file-display">

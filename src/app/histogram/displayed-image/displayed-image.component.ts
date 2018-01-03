@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BlockService} from '../block.service';
-import {FileStoreService} from '../../file-upload.service';
+import {ImageStore} from '../../image-upload/image.store';
 
 @Component({
   selector: 'app-displayed-image',
@@ -12,13 +12,13 @@ export class DisplayedImageComponent implements OnInit {
   currentBlock: Datapoint;
 
   get imageUrl() {
-    const fileStoreElement = this.fileStoreService.fileStore.getValue()[this.currentBlock.img];
+    const fileStoreElement = this.imageStore.imageStore.getValue()[this.currentBlock.img];
     return fileStoreElement ? fileStoreElement.dataUrl : '/assets/faq.png';
   }
 
   constructor(
     private blockService: BlockService,
-    private fileStoreService: FileStoreService
+    private imageStore: ImageStore
   ) { }
 
   ngOnInit() {

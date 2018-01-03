@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
-export interface FileStore {
+export interface IImageStore {
   [fileName: string]: {
     file: File;
     dataUrl?: string;
@@ -9,14 +9,13 @@ export interface FileStore {
 }
 
 @Injectable()
-export class FileStoreService {
+export class ImageStore {
 
-  fileStore: BehaviorSubject<FileStore> = new BehaviorSubject<FileStore>({});
-
+  imageStore: BehaviorSubject<IImageStore> = new BehaviorSubject<IImageStore>({});
   constructor() { }
 
   get isEmpty(): boolean {
-    return Object.keys(this.fileStore.getValue()).length === 0;
+    return Object.keys(this.imageStore.getValue()).length === 0;
   }
 
 }

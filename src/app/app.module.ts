@@ -4,11 +4,12 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {FileUploadComponent} from './image-upload/image-upload.component';
-import {FileStoreService} from './file-upload.service';
 import {CsvUploadComponent} from './csv-upload/csv-upload.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {HistogramModule} from './histogram/histogram.module';
+import {ImageStore} from './image-upload/image.store';
+import {CsvDataStore} from './csv-upload/csv-data.store';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {HistogramModule} from './histogram/histogram.module';
     HistogramModule
   ],
   providers: [
-    FileStoreService
+    ImageStore,
+    CsvDataStore
   ],
   bootstrap: [AppComponent]
 })

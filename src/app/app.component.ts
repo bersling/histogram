@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {FileStore, FileStoreService} from './file-upload.service';
-
+import {ImageStore} from './image-upload/image.store';
 
 @Component({
   selector: 'app-root',
@@ -31,9 +30,9 @@ export class AppComponent {
   fileStoreArray: string[];
 
   constructor(
-    public fileStoreService: FileStoreService
+    public imageStore: ImageStore
   ) {
-    this.fileStoreService.fileStore.subscribe(newFileStore => {
+    this.imageStore.imageStore.subscribe(newFileStore => {
       this.fileStoreArray = Object.keys(newFileStore);
     });
   }
