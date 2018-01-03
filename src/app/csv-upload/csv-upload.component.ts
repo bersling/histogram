@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CsvDataStore} from './csv-data.store';
+import {PapaParseService} from 'ngx-papaparse';
 
 @Component({
   selector: 'app-csv-upload',
@@ -8,26 +9,26 @@ import {CsvDataStore} from './csv-data.store';
 })
 export class CsvUploadComponent implements OnInit {
 
+  parsedData;
+
   fileChange(event) {
     const fileList: FileList = event.target.files;
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
-      console.log('file', i, file);
 
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.store.csvFile = {
-          file: file,
-          dataUrl: reader.result
-        };
-        console.log('store', this.store.csvFile);
-      };
-      reader.readAsDataURL(file);
+      this.papa.parse(file, {
+        complete: (results, resultingFile) => {
+          this.store.csvFile = results;
+          this.parsedData = results;
+        }
+      });
+
     }
   }
 
   constructor(
-    private store: CsvDataStore
+    private store: CsvDataStore,
+    private papa: PapaParseService
   ) { }
 
   ngOnInit() {

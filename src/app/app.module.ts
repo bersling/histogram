@@ -10,6 +10,7 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from
 import {HistogramModule} from './histogram/histogram.module';
 import {ImageStore} from './image-upload/image.store';
 import {CsvDataStore} from './csv-upload/csv-data.store';
+import {PapaParseModule} from 'ngx-papaparse';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {CsvDataStore} from './csv-upload/csv-data.store';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    HistogramModule
+    HistogramModule,
+    PapaParseModule
   ],
   providers: [
     ImageStore,
