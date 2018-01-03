@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BlockService} from '../block.service';
-import {FileStoreService} from '../file-upload.service';
+import {FileStoreService} from '../../file-upload.service';
 
 @Component({
   selector: 'app-displayed-image',
