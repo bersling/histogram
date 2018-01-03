@@ -31,7 +31,12 @@ export class AppComponent {
     private csvStore: CsvDataStore
   ) {
     this.csvStore.csvFile.subscribe((newValue) => {
-      this.data = newValue.data;
+      this.data = newValue.data.map(elem => {
+        return {
+          size: elem[0],
+
+        }
+      });
     });
     this.imageStore.imageStore.subscribe(newFileStore => {
       this.fileStoreArray = Object.keys(newFileStore);
