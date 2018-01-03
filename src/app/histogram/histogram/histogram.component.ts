@@ -13,7 +13,7 @@ export class HistogramComponent implements OnChanges, OnInit {
   @Input() end: number;
   @Input() data;
 
-  bins;
+  bins: Datapoint[][];
   binLength: number;
   selected: number;
 
@@ -43,6 +43,15 @@ export class HistogramComponent implements OnChanges, OnInit {
     } else {
       // invalid, do something
     }
+  }
+
+  get maxBin(): number {
+    console.log('running map reduce...');
+    return this.bins.map(bin => bin.length).reduce((a, b) => a > b ? a : b);
+  }
+
+  get arrayOfLengthMaxBin(): any[] {
+    return Array(this.maxBin);
   }
 
 }
