@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 export interface FileStore {
@@ -15,10 +15,7 @@ export class FileStoreService {
 
   constructor() { }
 
-  // TODO: function is called too often, optimize...
-  counter = 0;
   get isEmpty(): boolean {
-    console.log(this.counter++, 'isEmpty');
     return Object.keys(this.fileStore.getValue()).length === 0;
   }
 
