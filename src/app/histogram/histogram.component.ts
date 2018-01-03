@@ -31,8 +31,6 @@ export class HistogramComponent implements OnChanges, OnInit {
     this.setBins();
   }
 
-
-
   setBins() {
     if (this.numberBins > 0) {
       this.bins = [];

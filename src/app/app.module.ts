@@ -7,7 +7,7 @@ import {HistogramComponent} from './histogram/histogram.component';
 import {BlockComponent} from './block/block.component';
 import {BlockService} from './block.service';
 import {DisplayedImageComponent} from './displayed-image/displayed-image.component';
-import {FileUploadComponent} from './file-upload/file-upload.component';
+import {FileUploadComponent} from './image-upload/image-upload.component';
 import {FileStoreService} from './file-upload.service';
 import {CsvUploadComponent} from './csv-upload/csv-upload.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
