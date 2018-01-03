@@ -15,15 +15,6 @@ export class AppComponent {
   start: number = 0;
   end: number = 2;
 
-  _displayHistogram: boolean;
-
-  get displayHistogram () {
-    return this._displayHistogram;
-  }
-  set displayHistogram(val) {
-    this._displayHistogram = val;
-  }
-
   fileStoreArray: string[];
 
   constructor(

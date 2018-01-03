@@ -2,69 +2,55 @@
   Interactive Histogram
 </h1>
 
-<div *ngIf="!displayHistogram">
-  <h2>
-    Step 1: Upload CSV
-  </h2>
+<mat-card>
   
-  <p>
-    The <code>.csv</code> should contain the following colums:
-  </p>
-  <pre>size, image-file-name</pre>
-  
-  <mat-card class="file-input-card">
-    <app-csv-upload></app-csv-upload>
-  </mat-card>
-  
-  <h2>
-    Step 2: Upload Images
-  </h2>
-  
-  <mat-card class="file-input-card">
-    <app-file-upload></app-file-upload>
-  </mat-card>
-  
-  <div *ngIf="!imageStore.isEmpty">
-    <div><h3>Loaded Files</h3></div>
+  <mat-horizontal-stepper>
+    <mat-step>
+      <ng-template matStepLabel>Upload CSV</ng-template>
+      <mat-card class="file-input-card">
+        <app-csv-upload></app-csv-upload>
+      </mat-card>
+      <div class="stepper-controls">
+        <div class="flex-spacer"></div>
+        <button mat-raised-button color="primary" matStepperNext class="next">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Upload Images</ng-template>
+      <mat-card class="file-input-card">
+        <app-file-upload></app-file-upload>
+      </mat-card>
+      <div class="stepper-controls">
+        <button mat-raised-button color="primary" matStepperPrevious class="back">Back</button>
+        <div class="flex-spacer"></div>
+        <button mat-raised-button color="primary" matStepperNext class="next">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Configure</ng-template>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
+        </mat-form-field>
     
-    <div *ngFor="let file of fileStoreArray" class="file-display">
-      {{file}}
-    </div>
-    <p>
-      (refresh page to clear)
-    </p>
-  </div>
-  
-  
-  <h2>Step 3: Choose histogram configuration</h2>
-  
-  <div class="example-container">
-    <mat-form-field>
-      <input matInput type="number" [(ngModel)]="numberBins" placeholder="Number of Bins">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <input matInput type="number" [(ngModel)]="start" placeholder="Start">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <input matInput type="number" [(ngModel)]="end" placeholder="End">
-    </mat-form-field>
-  </div>
-  
-  <br>
-  
-  <!--<button mat-raised-button color="primary" (click)="displayHistogram = true">-->
-    <!--Generate Histogram-->
-  <!--</button>-->
-</div>
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="start" placeholder="Start">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="end" placeholder="End">
+        </mat-form-field>
+      </div>
+      <div class="stepper-controls">
+        <button mat-raised-button color="primary" matStepperPrevious class="back">Back</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>
 
-<hr>
 
-<div>
-  <p>
-    <i>Click a block to see the corresponding image.</i>
-  </p>
+<div *ngIf="data && data.length > 0">
+  <br><br><br>
   <app-histogram [numberBins]="numberBins"
                  [start]="start"
                  [end]="end"
@@ -72,13 +58,6 @@
   </app-histogram>
   <br>
   <app-displayed-image></app-displayed-image>
-  
-  <hr>
-  <!---->
-  <!--<button mat-raised-button color="primary" (click)="displayHistogram = false">-->
-    <!--Edit Settings-->
-  <!--</button>-->
-  
 </div>
 
 
