@@ -25,7 +25,7 @@ export class AppComponent {
     this.csvStore.csvFile.subscribe((newValue) => {
       this.data = newValue.data.map((elem, idx) => {
         return {
-          size: parseInt(elem[0], 10),
+          size: parseFloat(elem[0]),
           img: elem[1],
           id: idx
         };

@@ -8,9 +8,9 @@ import {BlockService} from '../block.service';
 })
 export class HistogramComponent implements OnChanges, OnInit {
 
-  @Input() numberBins: number;
-  @Input() start: number;
-  @Input() end: number;
+  @Input() numberBins: number; // e.g. 10
+  @Input() start: number; // e.g. 0
+  @Input() end: number; // e.g. 5
   @Input() xLabel: string;
   @Input() data;
 
@@ -35,7 +35,7 @@ export class HistogramComponent implements OnChanges, OnInit {
   setBins() {
     if (this.numberBins > 0) {
       this.bins = [];
-      this.binLength = Math.abs(this.end - this.start) / this.numberBins;
+      this.binLength = Math.abs(this.end - this.start) / this.numberBins; // e.g. 0.5
       for (let nthBin = 0; nthBin < this.numberBins; nthBin++) {
         const bin = this.data
           .filter(dataPoint => dataPoint.size >= nthBin * this.binLength && dataPoint.size < (nthBin + 1) * this.binLength);
